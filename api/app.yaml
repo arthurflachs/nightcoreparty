@@ -1,0 +1,4 @@
+runtime: nodejs10
+env_variables:
+  UPLOAD_BUCKET_NAME: 'nightcore-files'
+  UPLOAD_PREFIX: 'http://35.201.94.101/'

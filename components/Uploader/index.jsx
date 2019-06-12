@@ -3,13 +3,14 @@ import {useDropzone} from 'react-dropzone';
 import fetch from 'isomorphic-unfetch'
 import styles from './styles.module.css';
 
+const API_URL = process.env.API_URL || 'http://localhost:5000';
 
 export default function Uploader({ onUploadedFile }) {
   const onDrop = useCallback(acceptedFiles => {
     const formData = new FormData();
     console.log('accepted file ?', typeof acceptedFiles[0]);
     formData.append("file", acceptedFiles[0], acceptedFiles[0].name);
-    fetch(" http://localhost:5000/upload", {
+    fetch(`${API_URL}/upload`, {
       method: "POST",
       body:formData
     })
